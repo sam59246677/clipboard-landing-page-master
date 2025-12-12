@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+:root {
+  /* Colors */
+  --blue-100: 233 100% 69%;
+  --blue-200: 233 65% 59%;
+  --green-500: 171 66% 44%;
+  --green-600: 171 64% 38%;
+
+  --white: 0 0 100%; 
+  --gray-100: 220 18% 97%;
+  --gray-500: 201 11% 66%;
+  --gray-700: 210 10% 33%;
+
+  /* Typography */
+  --font-family-primary: "Bai Jamjuree";
+
+  --font-size-sm: clamp(0.875rem, 1.125vw, 1.5rem);
+  --font-size-md: clamp(0.875rem, 1.25vw, 1.625rem);
+  --font-size-lg: clamp(0.875rem, 1.375vw, 1.75rem);
+
+  --font-size-heading-sm: clamp(1.125rem, 1.625vw, 2rem);
+  --font-size-heading-md: clamp(1.5rem, 2.25vw, 3rem);
+  --font-size-heading-lg: clamp(2rem, 3.25vw, 4.25rem);
+
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+
+  /* Spacing */
+  --spacing-0: clamp(0.75rem, 1vw, 1.25rem);
+  --spacing-1: clamp(0.875rem, 1.125vw, 1.5rem);
+  --spacing-2: clamp(1.5rem, 2.25vw, 3rem);
+  --spacing-3: clamp(2rem, 3.25vw, 4.25rem);
+  --spacing-4: clamp(2.75rem, 4.5vw, 5.75rem);
+  --spacing-5: clamp(3.5rem, 5.5vw, 7rem);
+  --spacing-6: clamp(4.25rem, 6.75vw, 8.75rem);
+  --spacing-7: clamp(5.5rem, 9vw, 11.5rem);
+  --spacing-8: clamp(6.75rem, 11vw, 14rem);
+}
+
+/*============================================
+  RESET & BASE STYLES
+  ============================================*/
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family-primary);
+}
+
+h1, h2, h3 {
+  font-weight: var(--font-weight-semibold);
+  color: hsl(var(--gray-700));
+}
+
+h1 {
+  font-size: var(--font-size-heading-lg);
+}
+
+h2 {
+  font-size: var(--font-size-heading-md);
+}
+
+h3 {
+  font-size: var(--font-size-heading-sm);
+}
+
+p {
+  margin-top: var(--spacing-1);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.6;
+  color: hsl(var(--gray-500));
+}
+
+h1 + p {
+  font-size: var(--font-size-lg);
+}
+
+h2 + p {
+  font-size: var(--font-size-md);
+}
+
+h3 + p {
+  font-size: var(--font-size-sm);
+}
+
+ul {
+  list-style-type: none;
+}
+
+svg, img {
+  display: block;
+}
+
+/*============================================
+  UTILITY STYLES
+  ============================================*/
+.sm {
+  width: clamp(16rem, 24.5vw, 32rem);
+}
+
+.lg {
+  width: clamp(32rem, 46.5vw, 60rem);
+}
+
+.sr-only {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/*============================================
+  HERO SECTION
+  ============================================*/
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-7) 0;
+  text-align: center;
+  background-image: url("./images/bg-header-desktop.png");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+}
+
+.hero .logo {
+  width: clamp(5.5rem, 8.75vw, 11.25rem);
+  height: auto;
+}
+
+.hero h1 {
+  margin-top: var(--spacing-4);
+}
+
+.download-btns {
+  display: flex;
+  gap: var(--spacing-1);
+  margin-top: var(--spacing-3);
+}
+
+.download-btns button {
+  padding: var(--spacing-0) var(--spacing-2);
+  border: initial;
+  border-radius: 8rem;
+  font-family: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: hsl(var(--white));
+  cursor: pointer;
+}
+
+.download-btns button:hover, .download-btns button:focus {
+  opacity: 0.8;
+}
+
+.download-btns button:active {
+  transform: translateY(0.125rem);
+  box-shadow: initial;
+}
+
+.download-btns .ios {
+  background-color: hsl(var(--green-500));
+  box-shadow: 0 0.125rem hsl(var(--green-600)), 0 0.75rem 1rem hsl(var(--green-500) / 0.2);
+}
+
+.download-btns .mac {
+  background-color: hsl(var(--blue-100));
+  box-shadow: 0 0.125rem hsl(var(--blue-200)), 0 0.75rem 1rem hsl(var(--blue-100) / 0.2);
+}
+
+/*============================================
+  FEATURES SECTION
+  ============================================*/
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--spacing-4);
+  text-align: center;
+}
+
+.features-list {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-5);
+  text-align: initial;
+}
+
+.features-list img {
+  width: clamp(34rem, 55vw, 70rem);
+  height: auto;
+  transform: translateX(-5%);
+}
+
+.feature + .feature {
+  margin-top: var(--spacing-4);
+}
+
+/*============================================
+  ACCESSIBILITY SECTION
+  ============================================*/
+.accessibility {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-4) 0;
+  text-align: center;
+}
+
+.accessibility img {
+  margin-top: var(--spacing-5);
+  width: clamp(38rem, 62.75vw, 80rem);
+  height: auto;
+}
+
+/*============================================
+  TOOLS SECTION
+  ============================================*/
+.tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-2) 0 var(--spacing-4) 0;
+  text-align: center;
+}
+
+.tools-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+  padding: 0 var(--spacing-3);
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tool h3 {
+  margin-top: var(--spacing-3);
+}
+
+.tool img {
+  width: clamp(1.75rem, 2.5vw, 3.25rem);
+  height: auto;
+}
+
+/*============================================
+  SPONSORS SECTION
+  ============================================*/
+.sponsors {
+  padding: var(--spacing-6) var(--spacing-3);
+}
+
+.sponsors-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-6);
+}
+
+.sponsors-list img {
+  width: clamp(5.5rem, 8.75vw, 11.25rem);
+  height: auto;
+}
+
+/*============================================
+  DOWNLOAD SECTION
+  ============================================*/
+.download {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-4) 0 var(--spacing-8) 0;
+  text-align: center;
+}
+
+/*============================================
+  LANDING PAGE FOOTER
+  ============================================*/
+footer {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-3) var(--spacing-7);
+  background-color: hsl(var(--gray-100));
+}
+
+footer .logo {
+  width: clamp(2.75rem, 4.25vw, 5.5rem);
+  height: auto;
+}
+
+.nav-links {
+  display: grid;
+  grid-auto-columns: max-content;
+  grid-template-areas: 
+    "a c e" 
+    "b d .";
+  gap: var(--spacing-1) var(--spacing-6);
+  margin-left: var(--spacing-7);
+}
+
+.nav-link a {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  text-decoration: initial;
+  color: hsl(var(--gray-700));
+}
+
+.nav-link a:hover, .nav-link a:focus {
+  color: hsl(var(--green-500));
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-left: auto;
+}
+
+.social-link svg {
+  width: clamp(1rem, 1.625vw, 2rem);
+  height: auto;
+  fill: hsl(var(--gray-700));
+}
+
+.social-link a:hover svg, .social-link a:focus svg {
+  fill: hsl(var(--green-500));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .download-btns button, .nav-link a, .social-link svg {
+    transition: 0.2s ease-in;
+  }
+}
+
+@media (max-width: 54rem) {
+  h1, h2 {
+    padding: 0 var(--spacing-3);
+  }
+
+  .sm {
+    width: min(16rem, 80vw);
+  }
+
+  .lg {
+    width: min(32rem, 80vw);
+  }
+
+  .features-list {
+    flex-direction: column;
+    gap: var(--spacing-5);
+    text-align: inherit;
+  }
+
+  .features-list img {
+    width: min(32rem, 80vw);
+    transform: initial;
+  }
+
+  .features-list ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-4);
+    padding: 0 var(--spacing-3);
+  }
+
+  .feature + .feature {
+    margin-top: 0;
+  }
+
+  .accessibility img {
+    width: min(32rem, 80vw);
+  }
+
+  .tools-list {
+    gap: var(--spacing-4);
+    margin-top: var(--spacing-5);
+  }
+
+  footer {
+    flex-direction: column;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3) 0;
+  }
+
+  .nav-links {
+    grid-template-areas: "a" "b" "c" "d" "e";
+    gap: var(--spacing-1);
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .social-links {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 28rem) {
+  .hero {
+    background-image: url("./images/bg-header-mobile.png");
+  }
+
+  .download-btns {
+    flex-direction: column;  
+  }
+
+  .download-btns button {
+    width: 80vw;
+  }
+}
